@@ -136,6 +136,7 @@ class _homePageState extends State<homePage> {
           ),
           ustReklam(),
           kategori(),
+          filtreBuild(),
         ],
       ),
     );

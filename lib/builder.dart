@@ -50,3 +50,70 @@ class ustKategori extends StatelessWidget {
     );
   }
 }
+
+class filtreBuild extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 20.0, left: 20),
+      child: Container(
+        height: MediaQuery.of(context).size.width * .16,
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromARGB(255, 192, 192, 192).withOpacity(0.2),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3),
+              )
+            ],
+            color: WhiteColor,
+            borderRadius: BorderRadius.all(Radius.circular(14))),
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Row(
+            children: [
+              IconButton(
+                  icon: Icon(
+                    Icons.filter_alt,
+                    color: BackgroundColor,
+                    size: 27,
+                  ),
+                  onPressed: null),
+              TextButton(
+                  child: Text(
+                    "Filtrele",
+                    style: TextStyle(color: BackgroundColor, fontSize: 20),
+                  ),
+                  onPressed: () {})
+            ],
+          ),
+          Text(
+            "|",
+            style: TextStyle(
+                color: BackgroundColor.withOpacity(.1),
+                fontSize: 30,
+                fontWeight: FontWeight.bold),
+          ),
+          Row(
+            children: [
+              IconButton(
+                  icon: Icon(
+                    Icons.unfold_more_sharp,
+                    color: BackgroundColor,
+                    size: 27,
+                  ),
+                  onPressed: null),
+              TextButton(
+                child: Text(
+                  "Sırala",
+                  style: TextStyle(color: BackgroundColor, fontSize: 20),
+                ),
+                onPressed: () {},
+              ),
+            ],
+          )
+        ]),
+      ),
+    );
+  }
+}
