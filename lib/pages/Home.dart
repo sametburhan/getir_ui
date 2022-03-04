@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:getir_ui/constant.dart';
-import 'package:getir_ui/reklam.dart';
+import 'package:getir_ui/builder.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -19,6 +19,13 @@ class _homePageState extends State<homePage> {
     "assets/reklam/reklam5.png",
     "assets/reklam/reklam6.png",
   ];
+  List kategoryIcons = [
+    "assets/kategori/1.png",
+    "assets/kategori/2.png",
+    "assets/kategori/3.png",
+    "assets/kategori/4.png",
+  ];
+  List kategoryText = ["Ne Yesem?", "Müdavim", "Siparişlerim", "Favorilerim"];
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -127,7 +134,8 @@ class _homePageState extends State<homePage> {
           SizedBox(
             height: MediaQuery.of(context).size.width * .15,
           ),
-          ustReklam()
+          ustReklam(),
+          kategori(),
         ],
       ),
     );
@@ -141,10 +149,32 @@ class _homePageState extends State<homePage> {
         //itemCount: photo.length,
         itemBuilder: (BuildContext context, int index) {
           return ustPhoto(
-            assetText: photo[index],
+            assetText: photo[index % photo.length],
           );
         },
       ),
+    );
+  }
+
+  Widget kategori() {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          deneme(context, 0),
+          deneme(context, 1),
+          deneme(context, 2),
+          deneme(context, 3)
+        ],
+      ),
+    );
+  }
+
+  Widget deneme(BuildContext context, int index) {
+    return ustKategori(
+      assetText: kategoryIcons[index],
+      categoryName: kategoryText[index],
     );
   }
 }
