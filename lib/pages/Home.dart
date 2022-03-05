@@ -56,48 +56,26 @@ class _homePageState extends State<homePage> {
               text1: "Müdavim Restoranları",
               text2: "Tümünü Gör (109)",
             ),
-            Container(
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              height: MediaQuery.of(context).size.width * .53,
-              width: MediaQuery.of(context).size.width * 1,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(color: Colors.black12, offset: Offset(0, 2))
-                ],
-                color: Colors.white,
-              ),
-              child: yatayListe(
-                  first: mudavimContent,
-                  second: mudavimPhoto,
-                  third: mudavimYildiz,
-                  fourth: yorumSayisi,
-                  fifth: "assets/mudavimKesit.png",
-                  sixth: "   Müdavim +25 TL indirim",
-                  seventh: BackgroundColor),
-            ),
+            yatayListe(
+                first: mudavimContent,
+                second: mudavimPhoto,
+                third: mudavimYildiz,
+                fourth: yorumSayisi,
+                fifth: "assets/mudavimKesit.png",
+                sixth: "   Müdavim +25 TL indirim",
+                seventh: BackgroundColor),
             araYazilar(
               text1: "Keşfet",
               text2: "Tümünü Gör (27)",
             ),
-            Container(
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              height: MediaQuery.of(context).size.width * .53,
-              width: MediaQuery.of(context).size.width * 1,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(color: Colors.black12, offset: Offset(0, 2))
-                ],
-                color: Colors.white,
-              ),
-              child: yatayListe(
-                  first: kesfetContent,
-                  second: kesfetPhoto,
-                  third: kesfetYildiz,
-                  fourth: kesfetyorumSayisi,
-                  fifth: "assets/kesfetKesit.png",
-                  sixth: "Yeni",
-                  seventh: Colors.white),
-            ),
+            yatayListe(
+                first: kesfetContent,
+                second: kesfetPhoto,
+                third: kesfetYildiz,
+                fourth: kesfetyorumSayisi,
+                fifth: "assets/kesfetKesit.png",
+                sixth: "Yeni",
+                seventh: Colors.white),
             SizedBox(
               height: 200,
             )
