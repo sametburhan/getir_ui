@@ -20,35 +20,38 @@ class ustKategori extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: Image.asset(
-              assetText,
+    return Padding(
+      padding: const EdgeInsets.only(left: 4.0, right: 4),
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Image.asset(
+                assetText,
+              ),
+              iconSize: 40,
             ),
-            iconSize: 40,
-          ),
-          Text(
-            categoryName,
-          ),
-        ],
-      ),
-      height: MediaQuery.of(context).size.width * .18,
-      width: MediaQuery.of(context).size.width * 0.21,
-      decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Color.fromARGB(255, 192, 192, 192).withOpacity(0.1),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+            Text(
+              categoryName,
             ),
           ],
-          color: WhiteColor,
-          borderRadius: BorderRadius.all(Radius.circular(14))),
+        ),
+        height: MediaQuery.of(context).size.width * .18,
+        width: MediaQuery.of(context).size.width * 0.21,
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromARGB(255, 192, 192, 192).withOpacity(0.1),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+            color: WhiteColor,
+            borderRadius: BorderRadius.all(Radius.circular(14))),
+      ),
     );
   }
 }

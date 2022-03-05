@@ -3,6 +3,7 @@ import 'package:getir_ui/structure/adreswidget.dart';
 import 'package:getir_ui/structure/araYazilar.dart';
 import 'package:getir_ui/structure/constant.dart';
 import 'package:getir_ui/structure/builder.dart';
+import 'package:getir_ui/structure/kategori.dart';
 import 'package:getir_ui/structure/lists.dart';
 import 'package:getir_ui/structure/ustReklam.dart';
 import 'package:getir_ui/structure/yatayListe.dart';
@@ -77,28 +78,12 @@ class _homePageState extends State<homePage> {
                 sixth: "Yeni",
                 seventh: Colors.white),
             SizedBox(
+              //silincek
               height: 200,
             )
           ],
         ),
       ),
-    );
-  }
-
-  Widget kategori() {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [deneme(0), deneme(1), deneme(2), deneme(3)],
-      ),
-    );
-  }
-
-  Widget deneme(int index) {
-    return ustKategori(
-      assetText: kategoryIcons[index],
-      categoryName: kategoryText[index],
     );
   }
 }
