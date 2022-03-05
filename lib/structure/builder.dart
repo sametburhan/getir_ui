@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:getir_ui/constant.dart';
+import 'package:getir_ui/structure/constant.dart';
 
 class ustPhoto extends StatelessWidget {
   final assetText;
@@ -125,11 +125,17 @@ class mudavimRestoranlari extends StatelessWidget {
   final yildiz;
   final contentYemek;
   final yorumSayisi;
+  final sekil;
+  final kesityazi;
+  final color;
   mudavimRestoranlari(
       {required this.photo,
       required this.yildiz,
       required this.contentYemek,
-      required this.yorumSayisi});
+      required this.yorumSayisi,
+      required this.kesityazi,
+      required this.color,
+      required this.sekil});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -142,7 +148,7 @@ class mudavimRestoranlari extends StatelessWidget {
               height: MediaQuery.of(context).size.width * .4,
               left: 10,
               child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderRadius: BorderRadius.all(Radius.circular(7)),
                   child: Image.asset(
                     photo,
                     fit: BoxFit.fill,
@@ -175,7 +181,7 @@ class mudavimRestoranlari extends StatelessWidget {
                 children: [
                   ClipRect(
                       child: Image.asset(
-                    "assets/mudavimKesit.png",
+                    sekil,
                     scale: 2.3,
                   )),
                   Row(
@@ -189,8 +195,8 @@ class mudavimRestoranlari extends StatelessWidget {
                         color: BackgroundColor,
                       ),
                       Text(
-                        "   Müdavim +25 TL indirim",
-                        style: TextStyle(color: BackgroundColor),
+                        kesityazi,
+                        style: TextStyle(color: color),
                       )
                     ],
                   ),

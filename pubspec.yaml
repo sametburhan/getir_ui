@@ -62,6 +62,7 @@ flutter:
   assets:
     - assets/getir.png
     - assets/mudavimKesit.png
+    - assets/kesfetKesit.png
     - assets/topHome.png
     - assets/centerIcon.png
     - assets/reklam/reklam1.png
@@ -79,6 +80,11 @@ flutter:
     - assets/mudavim/c.jpg
     - assets/mudavim/d.jpg
     - assets/mudavim/e.jpg
+    - assets/kesfet/a.jpg
+    - assets/kesfet/b.jpg
+    - assets/kesfet/c.jpg
+    - assets/kesfet/d.jpg
+    - assets/kesfet/e.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
