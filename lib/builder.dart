@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:getir_ui/constant.dart';
 
@@ -122,22 +124,129 @@ class mudavimRestoranlari extends StatelessWidget {
   final photo;
   final yildiz;
   final contentYemek;
+  final yorumSayisi;
   mudavimRestoranlari(
-      {required this.photo, required this.yildiz, required this.contentYemek});
+      {required this.photo,
+      required this.yildiz,
+      required this.contentYemek,
+      required this.yorumSayisi});
   @override
   Widget build(BuildContext context) {
     return Container(
         height: MediaQuery.of(context).size.width * 2,
-        width: MediaQuery.of(context).size.width * 1,
+        width: MediaQuery.of(context).size.width * .83,
         child: Stack(
           children: [
             Positioned(
-              width: MediaQuery.of(context).size.width * .9,
-              child: FittedBox(
-                child: Image.asset(photo),
-                fit: BoxFit.fill,
+              width: MediaQuery.of(context).size.width * .8,
+              height: MediaQuery.of(context).size.width * .4,
+              left: 10,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  child: Image.asset(
+                    photo,
+                    fit: BoxFit.fill,
+                  )),
+            ),
+            Positioned(
+              right: 5,
+              top: 2,
+              child: IconButton(
+                color: Colors.black38,
+                icon: Icon(Icons.favorite),
+                iconSize: 40,
+                onPressed: () {},
               ),
             ),
+            Positioned(
+              right: 5,
+              top: 2,
+              child: IconButton(
+                color: Colors.white,
+                icon: Icon(Icons.favorite_border),
+                iconSize: 40,
+                onPressed: () {},
+              ),
+            ),
+            Positioned(
+              left: 25,
+              top: 18,
+              child: Stack(
+                children: [
+                  ClipRect(
+                      child: Image.asset(
+                    "assets/mudavimKesit.png",
+                    scale: 2.3,
+                  )),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: 3,
+                      ),
+                      Icon(
+                        Icons.diamond_rounded,
+                        color: BackgroundColor,
+                      ),
+                      Text(
+                        "   Müdavim +25 TL indirim",
+                        style: TextStyle(color: BackgroundColor),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              right: 15,
+              bottom: 50,
+              child: Container(
+                height: MediaQuery.of(context).size.width * .08,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(7))),
+                padding: EdgeInsets.only(right: 5, left: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.star_half_rounded,
+                      size: 25,
+                      color: BackgroundColor,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      yildiz,
+                      style: TextStyle(color: BackgroundColor, fontSize: 18),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      yorumSayisi,
+                      style: TextStyle(color: Colors.black38, fontSize: 16),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+                left: 25,
+                bottom: 50,
+                child: Icon(
+                  Icons.camera_alt_rounded,
+                  color: BackgroundColor,
+                  size: 30,
+                )),
+            Positioned(
+                left: 15,
+                bottom: 0,
+                child: Text(
+                  contentYemek,
+                  style: TextStyle(fontSize: 20),
+                ))
           ],
         ));
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:getir_ui/constant.dart';
 import 'package:getir_ui/builder.dart';
 
@@ -19,6 +18,7 @@ class _homePageState extends State<homePage> {
     "assets/reklam/reklam5.png",
     "assets/reklam/reklam6.png",
   ];
+  List yorumSayisi = ["(20+)", "(50+)", "(750+)", "(200+)", "(100+)"];
   List kategoryIcons = [
     "assets/kategori/1.png",
     "assets/kategori/2.png",
@@ -43,6 +43,9 @@ class _homePageState extends State<homePage> {
   List mudavimYildiz = ["4.2", "4.1", "4.3", "3.8", "4.0"];
 
   //fit: BoxFit.fill,
+  Future<void> _onrefresh() async {
+    await Future.delayed(Duration(milliseconds: 400));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -148,56 +151,55 @@ class _homePageState extends State<homePage> {
             width: MediaQuery.of(context).size.width * 1,
             child: filtreBuild()),
       ),
-      /*Positioned(
-          // aşağıya yerleşcek
-          top: MediaQuery.of(context).size.width * 1.5,
-          width: MediaQuery.of(context).size.width * 1,
-          child: IconButton(
-            icon: Image.asset(
-              "assets/centerIcon.png",
-            ),
-            iconSize: 70,
-            onPressed: () {},
-          ))*/
     ]);
   }
 
   Widget homePageContent() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.width * .15,
-          ),
-          ustReklam(),
-          kategori(),
-          filtreBuild(),
-          mudavim(),
-          Container(
-              padding: EdgeInsets.all(20),
-              height: MediaQuery.of(context).size.width * .6,
+    return RefreshIndicator(
+      onRefresh: _onrefresh,
+      edgeOffset: 20,
+      displacement: 80,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.width * .15,
+            ),
+            ustReklam(),
+            kategori(),
+            filtreBuild(),
+            mudavim(),
+            Container(
+              padding: EdgeInsets.only(top: 10, bottom: 10),
+              height: MediaQuery.of(context).size.width * .53,
               width: MediaQuery.of(context).size.width * 1,
               decoration: BoxDecoration(
                 color: Colors.white,
               ),
-              child: MudavimRestoran()),
-        ],
+              child: MudavimRestoran(),
+            ),
+            SizedBox(
+              height: 200,
+            )
+          ],
+        ),
       ),
     );
   }
 
   Widget MudavimRestoran() {
     return ListView.builder(
+      scrollDirection: Axis.horizontal,
       itemCount: mudavimYildiz.length,
       itemBuilder: (context, index) {
         return mudavimRestoranlari(
           contentYemek: mudavimContent[index],
           photo: mudavimPhoto[index],
           yildiz: mudavimYildiz[index],
+          yorumSayisi: yorumSayisi[index],
         );
       },
-      scrollDirection: Axis.horizontal,
     );
   }
 
