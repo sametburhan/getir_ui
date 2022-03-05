@@ -117,3 +117,28 @@ class filtreBuild extends StatelessWidget {
     );
   }
 }
+
+class mudavimRestoranlari extends StatelessWidget {
+  final photo;
+  final yildiz;
+  final contentYemek;
+  mudavimRestoranlari(
+      {required this.photo, required this.yildiz, required this.contentYemek});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: MediaQuery.of(context).size.width * 2,
+        width: MediaQuery.of(context).size.width * 1,
+        child: Stack(
+          children: [
+            Positioned(
+              width: MediaQuery.of(context).size.width * .9,
+              child: FittedBox(
+                child: Image.asset(photo),
+                fit: BoxFit.fill,
+              ),
+            ),
+          ],
+        ));
+  }
+}

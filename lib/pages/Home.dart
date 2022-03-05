@@ -26,9 +26,30 @@ class _homePageState extends State<homePage> {
     "assets/kategori/4.png",
   ];
   List kategoryText = ["Ne Yesem?", "Müdavim", "Siparişlerim", "Favorilerim"];
+  List mudavimContent = [
+    "Taç Mangal (Altıntepsi Mah.)",
+    "Hero's Pizza (Abdurrahman Nafiz G..",
+    "Hero's Pizza (Sanayi Mah)",
+    "Kebap ve Lahmacun Dünyası (Mer...",
+    "Bağdatlı Ocakbaşı (Merkez Mah.)"
+  ];
+  List mudavimPhoto = [
+    "assets/mudavim/a.jpg",
+    "assets/mudavim/b.jpg",
+    "assets/mudavim/c.jpg",
+    "assets/mudavim/d.jpg",
+    "assets/mudavim/e.jpg"
+  ];
+  List mudavimYildiz = ["4.2", "4.1", "4.3", "3.8", "4.0"];
+
+  //fit: BoxFit.fill,
+
   @override
   Widget build(BuildContext context) {
+    bool _visible = false;
+
     return Stack(children: [
+      homePageContent(),
       Container(
         child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           Padding(
@@ -63,13 +84,11 @@ class _homePageState extends State<homePage> {
         child: Row(
           children: <Widget>[
             Expanded(
-              flex: 1,
-              child: Icon(
-                Icons.home_filled,
-                color: YellowColor,
-                size: 27,
-              ),
-            ),
+                flex: 1,
+                child: Image.asset(
+                  "assets/topHome.png",
+                  scale: 9,
+                )),
             Expanded(
                 flex: 3,
                 child: Row(
@@ -80,7 +99,7 @@ class _homePageState extends State<homePage> {
                         "|",
                         style: TextStyle(
                             fontSize: 23,
-                            color: Colors.black26,
+                            color: BackgroundColor.withOpacity(0.2),
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -122,7 +141,24 @@ class _homePageState extends State<homePage> {
           ),
         ),
       ),
-      homePageContent(),
+      Visibility(
+        visible: _visible,
+        child: Positioned(
+            top: MediaQuery.of(context).size.width * .20,
+            width: MediaQuery.of(context).size.width * 1,
+            child: filtreBuild()),
+      ),
+      /*Positioned(
+          // aşağıya yerleşcek
+          top: MediaQuery.of(context).size.width * 1.5,
+          width: MediaQuery.of(context).size.width * 1,
+          child: IconButton(
+            icon: Image.asset(
+              "assets/centerIcon.png",
+            ),
+            iconSize: 70,
+            onPressed: () {},
+          ))*/
     ]);
   }
 
@@ -137,8 +173,31 @@ class _homePageState extends State<homePage> {
           ustReklam(),
           kategori(),
           filtreBuild(),
+          mudavim(),
+          Container(
+              padding: EdgeInsets.all(20),
+              height: MediaQuery.of(context).size.width * .6,
+              width: MediaQuery.of(context).size.width * 1,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: MudavimRestoran()),
         ],
       ),
+    );
+  }
+
+  Widget MudavimRestoran() {
+    return ListView.builder(
+      itemCount: mudavimYildiz.length,
+      itemBuilder: (context, index) {
+        return mudavimRestoranlari(
+          contentYemek: mudavimContent[index],
+          photo: mudavimPhoto[index],
+          yildiz: mudavimYildiz[index],
+        );
+      },
+      scrollDirection: Axis.horizontal,
     );
   }
 
@@ -176,6 +235,27 @@ class _homePageState extends State<homePage> {
     return ustKategori(
       assetText: kategoryIcons[index],
       categoryName: kategoryText[index],
+    );
+  }
+
+  Widget mudavim() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 25.0, right: 25, top: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "Müdavim Restoranları",
+            style: TextStyle(fontSize: 17),
+          ),
+          TextButton(
+              onPressed: () {},
+              child: Text(
+                "Tümünü Gör (109)",
+                style: TextStyle(color: BackgroundColor, fontSize: 17),
+              ))
+        ],
+      ),
     );
   }
 }

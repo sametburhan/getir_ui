@@ -73,6 +73,11 @@ flutter:
     - assets/kategori/3.png
     - assets/kategori/2.png
     - assets/kategori/1.png
+    - assets/mudavim/a.jpg
+    - assets/mudavim/b.jpg
+    - assets/mudavim/c.jpg
+    - assets/mudavim/d.jpg
+    - assets/mudavim/e.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
