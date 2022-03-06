@@ -33,7 +33,9 @@ class _homePageState extends State<homePage> {
           child: Positioned(
               top: MediaQuery.of(context).size.width * .20,
               width: MediaQuery.of(context).size.width * 1,
-              child: filtreBuild()),
+              child: filtreBuild(
+                opacity: .3,
+              )),
         ),
       ],
     );
@@ -66,7 +68,7 @@ class _homePageState extends State<homePage> {
             SizedBox(
               height: 20,
             ),
-            filtreBuild(),
+            filtreBuild(opacity: .1),
             araYazilar(
               text1: "Müdavim Restoranları",
               text2: "Tümünü Gör (109)",
@@ -126,10 +128,11 @@ class _homePageState extends State<homePage> {
               ucret: ucret,
               yemekGorseli: yemekGorseli,
               yorumSayisi: yorumSayisi,
+              visible: visible,
             ),
             SizedBox(
               //silincek
-              height: 200,
+              height: 10,
             )
           ],
         ),

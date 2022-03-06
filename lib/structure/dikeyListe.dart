@@ -12,6 +12,7 @@ class dikeyListe extends StatelessWidget {
   final ucret;
   final yemekGorseli;
   final yorumSayisi;
+  final visible;
   dikeyListe(
       {required this.indirim,
       required this.puan,
@@ -19,13 +20,15 @@ class dikeyListe extends StatelessWidget {
       required this.sure,
       required this.ucret,
       required this.yemekGorseli,
+      required this.visible,
       required this.yorumSayisi});
   @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.width * 2,
       child: ListView.builder(
-          scrollDirection: Axis.vertical,
+          physics:
+              const NeverScrollableScrollPhysics(), //scroll yapısını kapatır
           itemCount: yemekGorseli.length,
           itemBuilder: (context, index) {
             return yemekListesi(
@@ -36,6 +39,7 @@ class dikeyListe extends StatelessWidget {
               ucret: ucret[index],
               yemekGorseli: yemekGorseli[index],
               yorumSayisi: yorumSayisi[index],
+              visible: visible[index],
             );
           }),
     );

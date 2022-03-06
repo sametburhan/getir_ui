@@ -105,4 +105,12 @@ List saticiAdi = [
   "My Little Pancake"
 ];
 List puan = ["4.8", "4.7", "4.7", "4.6", "4.6", "4.5"];
-List indirim = ["15", "20", "10", "", "", ""]; //in not null == build container
+List visible = ["true", "true", "false", "true", "false", "false"];
+List indirim = [
+  "15",
+  "20",
+  "0",
+  "10",
+  "0",
+  "0"
+]; //in not null == build container

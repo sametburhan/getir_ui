@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getir_ui/structure/constant.dart';
 import 'package:getir_ui/pages/Home.dart';
-import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 void main() {
   runApp(const MyApp());

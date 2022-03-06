@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:getir_ui/structure/constant.dart';
 
@@ -74,6 +72,9 @@ class ustKategori extends StatelessWidget {
 }
 
 class filtreBuild extends StatelessWidget {
+  final double opacity;
+  filtreBuild({required this.opacity});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -83,7 +84,7 @@ class filtreBuild extends StatelessWidget {
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Color.fromARGB(255, 192, 192, 192).withOpacity(0.1),
+                color: Color.fromARGB(255, 141, 141, 141).withOpacity(opacity),
                 spreadRadius: 5,
                 blurRadius: 7,
                 offset: Offset(0, 3),
@@ -156,6 +157,7 @@ class mudavimRestoranlari extends StatelessWidget {
       required this.kesityazi,
       required this.color,
       required this.sekil});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -285,7 +287,9 @@ class yemekListesi extends StatelessWidget {
   final sure;
   final puan;
   final yorumSayisi;
+  final visible;
   final indirim;
+
   yemekListesi({
     required this.yemekGorseli,
     required this.saticiAdi,
@@ -293,8 +297,10 @@ class yemekListesi extends StatelessWidget {
     required this.puan,
     required this.sure,
     required this.ucret,
+    required this.visible,
     required this.yorumSayisi,
   });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -303,26 +309,76 @@ class yemekListesi extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
         child: Container(
+          padding: EdgeInsets.only(right: 15, left: 15),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Center(
-                child: Container(
-                    height: 85,
-                    width: 88,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                    child: Image.asset(
-                      yemekGorseli,
-                      fit: BoxFit.fill,
-                    )),
+              Container(
+                height: MediaQuery.of(context).size.width * .22,
+                width: MediaQuery.of(context).size.width * .22,
+                child: Stack(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.width * .22,
+                      width: MediaQuery.of(context).size.width * .22,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(9),
+                        child: Image.asset(
+                          yemekGorseli,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: -5,
+                      left: -2,
+                      child: Icon(
+                        Icons.camera_alt_rounded,
+                        color: BackgroundColor,
+                        size: 30,
+                      ),
+                    ),
+                    Visibility(
+                      visible: isBool(),
+                      child: Container(
+                        child: Container(
+                          margin: new EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * .04),
+                          child: Row(
+                            children: [
+                              Text(
+                                indirim + " TL ",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
+                        ),
+                        height: MediaQuery.of(context).size.width * .06,
+                        width: MediaQuery.of(context).size.width * .22,
+                        decoration: BoxDecoration(
+                            color: BackgroundColor,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(9),
+                                topRight: Radius.circular(9))),
+                      ),
+                    )
+                  ],
+                ),
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
                     saticiAdi,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
                   ),
                   Row(
                     children: [
@@ -355,6 +411,7 @@ class yemekListesi extends StatelessWidget {
                 ],
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
@@ -424,5 +481,13 @@ class yemekListesi extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  isBool() {
+    if (visible == "true") {
+      return true;
+    } else if (visible == "false") {
+      return false;
+    }
   }
 }
