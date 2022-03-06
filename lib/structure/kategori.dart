@@ -2,29 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:getir_ui/structure/builder.dart';
 import 'package:getir_ui/structure/lists.dart';
 
-class kategori extends StatefulWidget {
-  const kategori({Key? key}) : super(key: key);
+class kategori extends StatelessWidget {
+  final double height;
+  final double width;
+  final double iconsize;
+  final iconText;
+  final kategoriText;
+  final double fontSize;
+  kategori(
+      {required this.height,
+      required this.width,
+      required this.iconsize,
+      required this.kategoriText,
+      required this.fontSize,
+      required this.iconText});
 
-  @override
-  State<kategori> createState() => _kategoriState();
-}
-
-class _kategoriState extends State<kategori> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          const EdgeInsets.only(right: 15.0, left: 15, top: 20, bottom: 20),
+      padding: const EdgeInsets.only(
+          right: .0, left: 0, top: 0, bottom: 0), //şimdilik boş
       child: SizedBox(
-        height: MediaQuery.of(context).size.width * .18,
+        height: height,
         width: MediaQuery.of(context).size.width * 1,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: kategoryIcons.length,
+            itemCount: iconText.length,
             itemBuilder: (content, index) {
               return ustKategori(
-                assetText: kategoryIcons[index],
-                categoryName: kategoryText[index],
+                assetText: iconText[index],
+                categoryName: kategoriText[index],
+                iconsize: iconsize,
+                height: height,
+                width: width,
+                fontSize: fontSize,
               );
             }),
       ),

@@ -3,6 +3,7 @@ import 'package:getir_ui/structure/adreswidget.dart';
 import 'package:getir_ui/structure/araYazilar.dart';
 import 'package:getir_ui/structure/constant.dart';
 import 'package:getir_ui/structure/builder.dart';
+import 'package:getir_ui/structure/dikeyListe.dart';
 import 'package:getir_ui/structure/kategori.dart';
 import 'package:getir_ui/structure/lists.dart';
 import 'package:getir_ui/structure/ustReklam.dart';
@@ -51,11 +52,27 @@ class _homePageState extends State<homePage> {
               height: MediaQuery.of(context).size.width * .15,
             ),
             ustReklam(),
-            kategori(),
+            SizedBox(
+              height: 20,
+            ),
+            kategori(
+              iconsize: 40,
+              fontSize: 14,
+              height: MediaQuery.of(context).size.width * .18,
+              width: MediaQuery.of(context).size.width * 0.21,
+              iconText: kategoryIcons,
+              kategoriText: kategoryText,
+            ),
+            SizedBox(
+              height: 20,
+            ),
             filtreBuild(),
             araYazilar(
               text1: "Müdavim Restoranları",
               text2: "Tümünü Gör (109)",
+              visible: false,
+              color: BackgroundColor,
+              icon: Icons.abc,
             ),
             yatayListe(
                 first: mudavimContent,
@@ -68,6 +85,9 @@ class _homePageState extends State<homePage> {
             araYazilar(
               text1: "Keşfet",
               text2: "Tümünü Gör (27)",
+              visible: false,
+              color: BackgroundColor,
+              icon: Icons.abc,
             ),
             yatayListe(
                 first: kesfetContent,
@@ -77,6 +97,36 @@ class _homePageState extends State<homePage> {
                 fifth: "assets/kesfetKesit.png",
                 sixth: "Yeni",
                 seventh: Colors.white),
+            araYazilar(
+              text1: "Mutfaklar",
+              text2: "",
+              color: BackgroundColor,
+              icon: Icons.menu_open_rounded,
+              visible: false,
+            ),
+            kategori(
+                iconsize: 63,
+                height: MediaQuery.of(context).size.width * .25,
+                iconText: iconTextlist,
+                kategoriText: kategoriTextlist,
+                fontSize: 18,
+                width: MediaQuery.of(context).size.width * .35),
+            araYazilar(
+              text1: "Tüm Restoranlar (471)",
+              text2: "Görünüm",
+              visible: true,
+              color: Colors.black38,
+              icon: Icons.view_day_outlined,
+            ),
+            dikeyListe(
+              indirim: indirim,
+              puan: puan,
+              saticiAdi: saticiAdi,
+              sure: sure,
+              ucret: ucret,
+              yemekGorseli: yemekGorseli,
+              yorumSayisi: yorumSayisi,
+            ),
             SizedBox(
               //silincek
               height: 200,

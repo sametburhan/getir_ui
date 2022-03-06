@@ -21,11 +21,19 @@ class yatayListe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 10, bottom: 10),
+      padding: EdgeInsets.only(
+        top: 10,
+        bottom: 10,
+      ),
       height: MediaQuery.of(context).size.width * .53,
       width: MediaQuery.of(context).size.width * 1,
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(color: Colors.black12, offset: Offset(0, 2))],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            offset: Offset(0, 2),
+          )
+        ],
         color: Colors.white,
       ),
       child: ListView.builder(

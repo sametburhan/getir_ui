@@ -85,6 +85,20 @@ flutter:
     - assets/kesfet/c.jpg
     - assets/kesfet/d.jpg
     - assets/kesfet/e.jpg
+    - assets/mutfaklar/1.1.png
+    - assets/mutfaklar/1.2.png
+    - assets/yemek/burger.png
+    - assets/yemek/cigKofte.jpg
+    - assets/yemek/doner.png
+    - assets/yemek/kebap.jpg
+    - assets/yemek/pizza.jpg
+    - assets/R.png
+    - assets/yemekGorseli/2.1.png
+    - assets/yemekGorseli/2.2.jpg
+    - assets/yemekGorseli/2.3.jpg
+    - assets/yemekGorseli/2.4.jpeg
+    - assets/yemekGorseli/2.5.jpg
+    - assets/yemekGorseli/2.6.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
