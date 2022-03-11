@@ -29,7 +29,7 @@ class _homePageState extends State<homePage> {
         homePageContent(),
         adresWidget(),
         Visibility(
-          visible: _visible,
+          visible: false,
           child: Positioned(
               top: MediaQuery.of(context).size.width * .20,
               width: MediaQuery.of(context).size.width * 1,

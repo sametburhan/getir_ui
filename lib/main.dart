@@ -37,6 +37,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: appbarSelector(),
       body: pageSelector(),
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        selectedFontSize: 0,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -63,6 +67,14 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: BackgroundColor,
         unselectedItemColor: Colors.black38,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {},
+        backgroundColor: BackgroundColor,
+        child: Image.asset(
+          "assets/centerIcon.png",
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
